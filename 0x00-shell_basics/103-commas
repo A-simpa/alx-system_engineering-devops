@@ -1,2 +1,3 @@
 #!/bin/bash
-ls -apmx | sort
+ls -apm | sort
+/n
