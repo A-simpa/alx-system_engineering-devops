@@ -1,1 +1,1 @@
-this repository is for my bash scripts
+file manipulations and bash basics 
