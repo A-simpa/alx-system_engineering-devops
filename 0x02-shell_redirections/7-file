@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Best Schoo" > "\\*\\'"Best School"\'\\*$\?\*\*\*\*\*:)"
+echo "Best Schoo" > \\\*\\\\"'\"Best School\"\\'"\\\\\*\$\\\?\\\*\\\*\\\*\\\*\\\*\:\)
 
 
 
