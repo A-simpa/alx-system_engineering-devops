@@ -1,2 +1,3 @@
 #!/bin/bash
-echo $(($bestschool#($(($water#$WATER+$stir#$STIR)))))
+echo "ibase=10; obase=$bestschool $(($water#$WATER+$stir#$STIR))" | bc
+ 
