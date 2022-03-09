@@ -1,2 +1,2 @@
 #!/bin/bash
-printf '%o\n' $(( $( echo $WATER | tr water 01234567) + $( echo $STIR | tr stir 01234567 ) )) | tr 01234567 bestschool
+printf '%o\n' $(( 8#$( echo $WATER | tr water 01234567) + 8#$( echo $STIR | tr stir 01234567 ) )) | tr 01234567 bestschool
