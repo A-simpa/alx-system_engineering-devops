@@ -1,0 +1,2 @@
+#!/bin/bash
+find -P -depth -empty -printf "%f\n"
