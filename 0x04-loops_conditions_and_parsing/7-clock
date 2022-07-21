@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# printing bad_luck your_chance and Best School
+
+i=0
+while ((i <= 12));do
+	echo "Hour: $i"
+	j=1
+	while ((j <= 59));do
+		echo "$j"
+		((j++))
+	done
+	((i++))
+done
