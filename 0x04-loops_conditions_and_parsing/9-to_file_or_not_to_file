@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# checking if school file exit and it type and content
+
+f=$(file school | cut -d" " -f2)
+
+if [ "$f" == "cannot" ];then
+	echo "school file does not exist"
+else
+	echo "school file exists"
+	if [ "$f" == "empty" ];then
+		echo "school file is empty"
+	else
+		echo "school file is not empty";
+	fi
+	
+	if [ "$f" != "directory" ];then
+		echo "school is a regular file"
+	fi;
+fi
