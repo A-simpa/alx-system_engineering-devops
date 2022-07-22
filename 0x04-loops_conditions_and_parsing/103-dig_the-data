@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# groups client by ip address and http status from result of 102-lets_parse_apache_logs
+
+awk -F" " '{print $1" "$9}' apache-access.log | sort -n | uniq -c | sort -rn
