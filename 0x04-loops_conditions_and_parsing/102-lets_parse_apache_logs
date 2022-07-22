@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#displays the ip address and http status of a webserver from apache log
+
+
+awk -F" " '{print $1" "$9}' apache-access.log

@@ -2,9 +2,8 @@
 #display user's name, id, root dir from /etc/passwd
 
 cut -d":" -f1,3,6 /etc/passwd > file
-IFS=:
 
-while read -r lines;
+while IFS=: read -r lines;
 do
 	echo "$lines"
 done < file 
