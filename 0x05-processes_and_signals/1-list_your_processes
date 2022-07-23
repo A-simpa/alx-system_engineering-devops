@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#print all process with or without tty
+
+ps -A -H -F
