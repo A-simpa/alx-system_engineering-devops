@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 #terminate the current running bash script
 
-kill $(pidof bash | cut -d" " -f3)
+kill "$(pidof bash | cut -d" " -f3)"
