@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 #terminate the current running bash script
 
-kill "$(pgrep -a bash* | grep 4* | cut -d" " -f1)"
+kill "$(pgrep -a bash| grep './4-to_infinity_and_beyond' | cut -d" " -f1)"
