@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# control the ./manage_my_process runnings
+
+
+if [ "$1" == "" ];
+then
+	echo "Usage: manage_my_process {start|stop|restart}"
+elif [ "$1" == "start" ];
+then
+	'./manage_my_process' start &
+	sudo touch '/var/run/my_process.pid' && \
+	sudo chmod 777 '/var/run/my_process.pid' &&	\
+	echo $$ > '/var/run/my_process.pid'
+	echo 'manage_my_process started'
+
+elif [ "$1" == "stop" ];
+then
+	'./manage_my_process' stop &
+	sudo rm '/var/run/my_process.pid'
+	echo 'manage_my_process stopped'
+
+elif [ "$1" == "restart" ]
+then
+	'./manage_my_process' stop &
+        sudo rm '/var/run/my_process.pid'
+
+	'./manage_my_process' start &
+        sudo touch '/var/run/my_process.pid' && \
+        sudo chmod 777 '/var/run/my_process.pid' &&     \
+        echo $$ > '/var/run/my_process.pid'
+	echo "manage_my_process restarted"
+fi
