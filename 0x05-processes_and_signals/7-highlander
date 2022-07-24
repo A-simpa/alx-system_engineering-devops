@@ -2,7 +2,7 @@
 #print To infinity and beyond indefinitely
 
 
-trap  "echo 'I am invincible!!!'; exit" SIGTERM 
+trap  "echo 'I am invincible!!!';" SIGTERM 
 while ((1));
 do
 	echo "To infinity and beyond"
