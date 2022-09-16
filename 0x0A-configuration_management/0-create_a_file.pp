@@ -1,3 +1,4 @@
+#This declaration create a file with content I love you
 file { '/tmp/school':
     ensure  => file,
     mode    => '0744',
