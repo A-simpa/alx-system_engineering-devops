@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# create a new key pair name=school byte=4096 passphrase=betty
+ssh-keygen -q -fschool -b4096 -Nbetty
