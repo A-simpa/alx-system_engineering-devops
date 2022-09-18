@@ -1,8 +1,16 @@
-#configures an ssh config file
-file {'/home/vagrant/.ssh/config':
-    ensure  => file,
-    path    => '/home/vagrant/.ssh/config',
-    content => 'Host 44.197.197.53
-	IdentityFile ~/.ssh/school
-        PasswordAuthentication no'
+#configures an ssh config file to contain some content
+include stdlib
+
+file_line {'/etc/ssh/ssh_config':
+    ensure  => present,
+    path    => '/etc/ssh/ssh_config',
+    line    => '	PasswordAuthentication no',
+    replace => true
+}
+
+file_line {'/etc/ssh/ssh_config':
+    ensure  => present,
+    path    => '/etc/ssh/ssh_config',
+    line    => '		IdentityFile ~/.ssh/school',
+    replace =>
 }
