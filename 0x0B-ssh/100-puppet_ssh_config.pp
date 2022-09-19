@@ -1,14 +1,14 @@
 #configures an ssh config file to contain some content
 include stdlib
 
-file_line {'Turn off passwd auth':
+file_line {'Turning of passwd authentication':
     ensure  => present,
     path    => '/etc/ssh/ssh_config',
     line    => '	PasswordAuthentication no',
     replace => true
 }
 
-file_line {'Declare identity file':
+file_line {'constant Identity file':
     ensure  => present,
     path    => '/etc/ssh/ssh_config',
     line    => '	IdentityFile ~/.ssh/school',
