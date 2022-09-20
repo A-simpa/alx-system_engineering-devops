@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Transfering your desired file to a desired server
+
+scp "$1" "$3"@"$2": -i "$4"
