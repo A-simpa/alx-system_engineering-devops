@@ -2,4 +2,4 @@
 # run apache on a container
 
 echo "ServerName localhost" >> /etc/apache2.conf
-service apache2 star
+service apache2 start
