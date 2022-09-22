@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#install nginx
+#connects through http
+#print Hello World!
+#configure to reditect 301
+
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+echo "Hello World!" > /var/www/html/index.html
+
+REDIRECT="location = /redirect_me {return 301 www.facebook.com;}"
+
+sudo sed -i "/server_name/i $REDIRECT" /etc/ngix/sites-enabled/default 
+
+service nginx start
