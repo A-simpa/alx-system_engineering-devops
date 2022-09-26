@@ -9,7 +9,7 @@ sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
 echo "Hello World!" > /var/www/html/index.html
 
-REDIRECT="location = /redirect_me {return 301 www.facebook.com;}"
+REDIRECT="location = /redirect_me {return 301 https://www.digitalocean.com/community/tutorials/an-introduction-to-haproxy-and-load-balancing-concepts;}"
 
 sudo sed -i "/server_name/i $REDIRECT" /etc/nginx/sites-enabled/default 
 
