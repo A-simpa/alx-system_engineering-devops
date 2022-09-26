@@ -11,6 +11,6 @@ echo "Hello World!" > /var/www/html/index.html
 
 REDIRECT="location = /redirect_me {return 301 www.facebook.com;}"
 
-sudo sed -i "/server_name/i $REDIRECT" /etc/ngix/sites-enabled/default 
+sudo sed -i "/server_name/i $REDIRECT" /etc/nginx/sites-enabled/default 
 
 service nginx start
