@@ -9,7 +9,7 @@ sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
 echo "Hello World!" > /var/www/html/index.html
 
-REDIRECT="	location = /redirect_me {return 301 https://linuxhint.com/find-ip-address-ubuntu/;}"
+REDIRECT="location = /redirect_me {return 301 https://linuxhint.com/find-ip-address-ubuntu/;}"
 
 sudo sed -i "/server_name _;/a $REDIRECT" /etc/nginx/sites-enabled/default 
 
