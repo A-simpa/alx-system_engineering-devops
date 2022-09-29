@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+#install nginx
+#connects through http
+#print Hello World!
+#configure to reditect 301
+#add a new header in a http response
+
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+echo "Hello World!" > /var/www/html/index.html
+
+REDIRECT="\\\tif (\$request_filename ~ redirect_me)\
+ {\n\t\trewrite ^ https://linuxhint.com/find-ip-address-ubuntu/ permanent;\n\t}"
+
+echo "Ceci n'est pas une page" > /var/www/html/404_err.html
+
+ERRPAGE="\\\t#error page setup\n\terror_page 404 /404_err.html;\n\
+\tlocation = /404_err.html {\n\t\troot /var/www/html;\n\t\tinternal;\n\t}"
+
+HEADER="\\\tadd_header X-Served-By \$HOSTNAME;"
+
+sudo sed -i "/http {/a $HEADER" /etc/nginx/nginx.conf
+sudo sed -i "/server_name _;/a $REDIRECT" /etc/nginx/sites-enabled/default 
+sudo sed -i "/server_name _;/a $ERRPAGE" /etc/nginx/sites-enabled/default
+
+sudo service nginx restart
