@@ -2,7 +2,7 @@
 # Load balancing configuration
 
 sudo apt-get update
-sudo apt-get install haproxy
+sudo apt-get install haproxy -y
 sudo sed -i "s/mode\thttp/mode\ttcp/" /etc/haproxy/haproxy.cfg
 sudo sed -i "s/option\thttplog/option\ttcplog/" /etc/haproxy/haproxy.cfg
 sudo echo "ENABLED=1" >> /etc/default/haproxy
@@ -16,8 +16,8 @@ FRONTEND="frontend www\
 BACKEND="backend nginx_pool\
 \n\tbalance roundrobin\
 \n\tmode tcp\
-\n\tserver web-01 44.197.197.53:80\
-\n\tserver web-02 3.238.49.188:80\n"
+\n\tserver web-01 44.197.197.53:80 check\
+\n\tserver web-02 3.238.49.188:80 check\n"
 
 sudo echo -e "$FRONTEND" >> /etc/haproxy/haproxy.cfg
 sudo echo -e "$BACKEND" >> /etc/haproxy/haproxy.cfg
