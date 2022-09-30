@@ -7,6 +7,8 @@ sudo sed -i "s/mode\thttp/mode\ttcp/" /etc/haproxy/haproxy.cfg
 sudo sed -i "s/option\thttplog/option\ttcplog/" /etc/haproxy/haproxy.cfg
 sudo echo "ENABLED=1" >> /etc/default/haproxy
 
+echo "" >> /etc/haproxy/haproxy.cfg
+
 FRONTEND="frontend www\
 \n\tbind *:80\
 \n\tdefault_backend nginx_pool\n"
