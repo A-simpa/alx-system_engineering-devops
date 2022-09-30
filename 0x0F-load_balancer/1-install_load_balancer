@@ -16,8 +16,8 @@ FRONTEND="frontend www\
 BACKEND="backend nginx_pool\
 \n\tbalance roundrobin\
 \n\tmode tcp\
-\n\tserver web01 44.197.197.53:80\
-\n\tserver web02 3.238.49.188:80\n"
+\n\tserver web-01 44.197.197.53:80\
+\n\tserver web-02 3.238.49.188:80\n"
 
 sudo echo -e "$FRONTEND" >> /etc/haproxy/haproxy.cfg
 sudo echo -e "$BACKEND" >> /etc/haproxy/haproxy.cfg
