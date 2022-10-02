@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# Map domain and subdomain to their A records
+# Usage: ./0-world_wide_web <domain> <subdomain>
+
+
+function get_line () {
+	#get the line that has the ip address and type
+	local line
+        line="$(dig "$1" | grep -A1 'ANSWER SECTION:' | tail -n1)"
+	echo "$line"
+}
+
+if (("$#" == 2)); then
+	url="$2.$1"
+        line="$(get_line "$url")"
+        type="$(echo "$line" | awk '{ printf $4 }')"
+        ip="$(echo "$line" | awk '{ printf $5 }')"
+	echo "The subdomain $2 is a $type record and points to $ip"
+else
+	for i in "www" "lb-01" "web-01" "web-02"
+	do
+		line="$(get_line "$i.$1")"
+                type="$(echo "$line" | awk '{ printf $4 }')"
+		ip="$(echo "$line" | awk '{ printf $5 }')"
+		echo "The subdomain $i is a $type record and points to $ip"
+	done
+fi 
