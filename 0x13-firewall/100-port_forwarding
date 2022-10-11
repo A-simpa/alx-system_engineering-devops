@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-
+#port forwarding
+ 
 sudo ufw allow 8080
 
 forward="*nat\
