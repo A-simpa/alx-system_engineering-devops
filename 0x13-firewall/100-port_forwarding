@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+sudo ufw allow 8080
+
+forward="*nat\
+\n:PREROUTING ACCEPT [0:0]\
+\n-A PREROUTING -p tcp --dport 8080 -j REDIRECT --to-port 80\
+\nCOMMIT"
+
+sed -i "\#\a $forward" /etc/ufw/before.rules
+
+sudo ufw enable
+sudo service ufw restart
