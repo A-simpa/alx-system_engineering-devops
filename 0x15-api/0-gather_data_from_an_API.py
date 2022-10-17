@@ -15,10 +15,10 @@ if __name__ == '__main__':
     resp = resp[start:end]
 
     for task in resp:
-        if (task.get('completed')):
-            done += 1
+        if task.get('completed'):
+            done = done + 1
 
     print('Employee {} is done with tasks({}/20)'.format(name, done))
     for task in resp:
-        if (task.get('completed')):
+        if task.get('completed'):
             print('\t {}'.format(task.get('title')))
