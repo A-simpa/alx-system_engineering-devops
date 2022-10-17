@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Get Employees and their workrate using jsonplaceholder
 Usage: ./0-gather_data_from_an_API.py <employee>"""
-
 import requests
 import sys
 
