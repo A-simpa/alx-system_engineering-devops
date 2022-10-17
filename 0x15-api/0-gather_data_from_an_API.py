@@ -5,13 +5,13 @@ import requests
 import sys
 
 if __name__ == '__main__':
-    """Implement getting an employee task rate"""
-    done, userid = 0, sys.argv[1]
+    done = 0
+    userid = sys.argv[1]
     start = (int(userid) - 1) * 20
     end = int(userid) * 20
     name = requests.get('https://jsonplaceholder.typicode.com/users/' + userid)
     name = name.json().get('name')
-    resp = requests.get(f'https://jsonplaceholder.typicode.com/todos').json()
+    resp = requests.get('https://jsonplaceholder.typicode.com/todos').json()
     resp = resp[start:end]
 
     for task in resp:
