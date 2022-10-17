@@ -6,6 +6,7 @@ import sys
 
 
 def main():
+    """Implement getting an employee task rate"""
     done, userId = 0, sys.argv[1]
     start = (int(userId) - 1) * 20
     end = int(userId) * 20
