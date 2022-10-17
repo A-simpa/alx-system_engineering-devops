@@ -4,8 +4,7 @@ Usage: ./0-gather_data_from_an_API.py <employee>"""
 import requests
 import sys
 
-
-def main():
+if __name__ == '__main__':
     """Implement getting an employee task rate"""
     done, userId = 0, sys.argv[1]
     start = (int(userId) - 1) * 20
@@ -23,7 +22,3 @@ def main():
     for task in resp:
         if (task.get('completed')):
             print('\t {}'.format(task.get('title')))
-
-
-if __name__ == '__main__':
-    main()
