@@ -14,7 +14,7 @@ if __name__ == '__main__':
     resp = requests.get(url + userid + '/todos').json()
 
     with open('{}.csv'.format(userid), 'w') as new:
-        new_file = csv.writer(new, delimiter=",")
+        new_file = csv.writer(new, delimiter=",", quoting=csv.QUOTE_ALL)
         for task in resp:
             res = [userid, name]
             res = res + [task.get('completed'), task.get('title')]
