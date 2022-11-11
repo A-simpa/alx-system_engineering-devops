@@ -2,7 +2,4 @@
 # change port to 80
 
 sudo sed -i "s/8080/80/" /etc/nginx/sites-enabled/default
-sudo allow ufw 'Nginx HTTP'
-echo "Hello World!" > /var/www/html/index.html
-
 sudo service nginx restart
