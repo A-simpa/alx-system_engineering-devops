@@ -5,7 +5,7 @@
 
 include stdlib
 
-class {'configure nginx':
+
   exec {'update apt-get':
     command => '/usr/bin/apt-get update',
   }
@@ -14,23 +14,18 @@ class {'configure nginx':
     command => '/usr/bin/apt-get -y install nginx',
   }
 
-  exec {'firewall allow http':
-    command => '/usr/sbin/ufw allow "Nginx HTTP"',
-  }
-
   file {'/var/www/html/index.html':
-    content => 'Hello World!',
     ensure  => present,
+    content => 'Hello World!',
   }
 
   file_line {'redirection':
     path  => '/etc/nginx/sites-enabled/default',
-    after => '^Server_name _;',
-    line  => '		location = /redirect_me { return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4; }',
+    after => '^\tserver_name _;',
+    line  => "\tlocation = /redirect_me { return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4; }",
   }
 
   service {'nginx':
-    name    => 'nginx',
-    restart => ,
+    name   => 'nginx',
+    enable => true,
   }
-}
