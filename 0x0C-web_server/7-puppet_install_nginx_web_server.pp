@@ -25,7 +25,6 @@ include stdlib
     line  => "\tlocation = /redirect_me { return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4; }",
   }
 
-  service {'nginx':
-    name   => 'nginx',
-    enable => true,
+  exec {'restart nginx':
+    command => '/usr/sbin/service nginx restart',
   }
