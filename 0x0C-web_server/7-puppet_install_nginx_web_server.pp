@@ -22,7 +22,7 @@ include stdlib
   file_line {'redirection':
     path  => '/etc/nginx/sites-enabled/default',
     after => '^\tserver_name _;',
-    line  => "\tlocation = /redirect_me { return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4; }",
+    line  => "\tif (\$request_filename ~ redirect_me) {\n\t\trewrite ^ https://linuxhint.com/find-ip-address-ubuntu/ permanent;\n\t}",
   }
 
   exec {'restart nginx':
